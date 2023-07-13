@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>OddEven</title>
+  <script src="../angular-1.8.2/angular.min.js"></script>
+  <script>
+    var app = angular.module("myapp",[]);
+    app.controller("myctrl", function($scope)
+    {
+      $scope.oddeven=function(result)      // first we use only num so we got error
+      {
+        if(result == null)
+        {
+          return(document.getElementById('output').innerHTML="<br>"+"*Please Enter a number to check number is Odd or Even");
+        }
+        else if(result % 2 == 0)
+        {
+          return(document.getElementById('output').innerHTML="<br><br>"+"Number is even");
+        }
+        else 
+        {
+          return(document.getElementById('output').innerHTML="<br><br>"+"Number is Odd");
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+ 
+    <div ng-app="myapp" ng-controller="myctrl">
+      <input type="number" ng-model="num">
+      <!-- {{num}} -->
+      <span id="output" ng-bind="oddeven(num)"></span>
+      <!-- {{oddeven()}}   expression -->
+    </div>
+</body>
+</html>
+
+

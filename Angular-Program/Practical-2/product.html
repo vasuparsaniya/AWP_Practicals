@@ -1,0 +1,76 @@
+<html ng-app="myapp" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <style>
+    table,th, td{
+            border: 1px solid black;
+        }
+        /* button {
+            border: none;
+        } */
+    </style>
+     <script src="../angular-1.8.2/angular.min.js"></script>
+     <script>
+        var app=angular.module("myapp",[]);
+
+        app.controller("myctrl",function($scope, $filter){
+
+            $scope.product = [];
+            $scope.add = function(){
+                   var pname=$scope.pname;
+                   var quantity=$scope.quantity;
+                   var price=$scope.price;
+                   var arr = {
+                    productname: pname,
+                    productquantity: quantity,
+                    productprice: price 
+                   };
+                   $scope.product.push(arr);
+                   $scope.pname="";
+                   $scope.quantity="";
+                   $scope.price="";
+            };
+            $scope.sortColumn = "productname";
+            $scope.reverseSort=false;
+
+            $scope.sortdata = function(column) {
+                $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
+                $scope.sortColumn = column;
+                $scope.product = $filter('orderBy')($scope.product, $scope.sortColumn, $scope.reverseSort);
+            };
+        });
+    </script>
+</head>
+<body ng-controller="myctrl">
+    <form>
+        <label for="name1">Product Name:</label>
+        <input type="text" id="name1" ng-model="pname">
+        <br>
+        <label for="name2">Product Quantity:</label>
+        <input type="number" id="name2" ng-model="quantity">
+        <br>
+        <label for="name3">Produc price:</label>
+        <input type="number" id="name3" ng-model="price">
+        <br>
+        <button type="button" ng-click="add()">Add Data</button>
+    </form>
+       
+        <table>
+            <tr>
+                <th ng-click="sortdata('name')">Product Name</th>
+                <th ng-click="sortdata('quantity')">Product Quantity</th>
+                <th ng-click="sortdata('price')">Product Price</th>
+            </tr>
+
+            <tr ng-repeat="p in product | orderBy:sortColumn:reverseSort">
+                <td>{{ p.productname }}</td>
+                <td>{{ p.productquantity }}</td>
+                <td>{{ p.productprice }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

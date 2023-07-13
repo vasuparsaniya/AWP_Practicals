@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function valid() {
+                var x = document.getElementById('mobile').value;
+                if (x.charAt(0) == 9 || x.charAt(0) == 8) {
+                    document.getElementById('error').innerHTML ="*Mobile Number should not start with" + " " + x.charAt(0);
+                }
+                else { 
+                    document.getElementById('error').innerHTML = "Mobile Number is valid";
+                }
+            }
+    </script>
+</head>
+<body>
+    <label for="mobile">Mobile Number:</label>
+    <input id="mobile" type="tel" maxlength="10">
+    <span id="error"></span>
+    <br>
+    <input type="button" value="Submit" onclick="valid()">
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td{
+            border: 2px solid black;
+        }
+    </style>
+    
+    <script src="../angular-1.8.2/angular.min.js"></script>
+<script>
+        var app=angular.module("myapp",[]);
+
+        app.controller("myctrl", function($scope)
+        {
+            $scope.product = [
+                {name: "Apple", price: 10},
+                {name: "Banana", price: 20},
+                {name: "Mango", price: 30},
+                {name: "Graps", price: 40},
+                {name: "watermelon", price: 50}
+            ]
+
+            $scope.totalamount=0;
+            $scope.gst=0;
+
+            $scope.bill=function() {
+                var total=0;
+                for(var i=0; i< $scope.product.length; i++)
+                {
+                    var p = $scope.product[i];
+                    total += p.price;
+                }
+            
+                $scope.gst = total * 0.18;
+                $scope.totalamount = total + $scope.gst;;
+            }
+        });
+    </script>
+</head>
+<body ng-controller="myctrl">
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Product Price</th>
+        </tr>
+        <tr ng-repeat="p in product">
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+        </tr>
+    </table>
+
+    <p>To Calculate TotalAmount & GST</p>
+    <button ng-click="bill()">Generate Bill</button>
+    <table>
+        <tr>
+            <th>GST</th>
+            <th>TotalAmount</th>
+        </tr>
+
+        <tr>
+            <td>{{gst}}</td>
+            <td>{{totalamount}}</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

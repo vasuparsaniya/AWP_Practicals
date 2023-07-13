@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Product List</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<h1>Product List</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Product Name</th>
+				<th>Product Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in products">
+				<td>{{product.name}}</td>
+				<td>{{product.price}}</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

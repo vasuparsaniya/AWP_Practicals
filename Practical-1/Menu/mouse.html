@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        document.onmousedown = mouse;
+     function mouse(event) {
+         if(event.button == 0) {
+             document.getElementById("result").innerHTML = "Left Mouse Button Was Clicked.";
+         }
+         if(event.button == 1){
+             documnet.getElemntById("result").innerHTML = "Middle Mouse Button Was Clicked";
+         }
+         if(event.button == 2){
+             document.getElementById("result").innerHTML = "Right Mouse Button Was Clicked";
+         }
+     }
+
+     function num() {
+        var x = document.getElementById("myform").elements.length;
+        document.getElementById("result2").innerHTML = x +" "+ "element(s) in the form";
+     }
+     
+    //  document.getElementById("result3").innerHTML = "Hello World!";
+ </script>
+</head>
+<body>
+    <h1>Mouse Event</h1>
+    <p id="result"></p>
+
+
+    <h1>Number Of Element In Form</h1>
+    <form id="myform" action="">
+        <input type="text">
+        <input type="number">
+    </form>
+    <button onclick="num()">Click Me</button>
+    <p id="result2"></p>
+
+    <h1>Message</h1>
+    <p id="result3"></p>
+    <script type="text/javascript">
+             document.write("Hello World!");
+    </script>
+</body>
+</html>

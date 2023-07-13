@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+     <script src="../angular-1.8.2/angular.min.js"></script>
+     <head>
+ <style>
+               table, th, td
+               {
+                    border: 1px solid grey;
+                    border-collapse: collapse;
+                    padding: 5px;
+               }
+               table tr:nth-child(odd)
+               {
+                    background-color: #ffe6e6;
+               }
+               table tr:nth-child(even)
+               {
+                    background-color: #ccffcc;
+               }
+          </style>
+     </head>
+
+
+<body style="font-family:Arial; font-size:medium; color:darkblue">
+          <div ng-controller="myCont">
+               
+               <br/>
+               <h3> Search Employee : <input type="text" ng-model= "searchEmp"/></h3>
+               <br/><br/>
+               <table>
+                    <tr>
+                         <th>FirstName</th>
+                         <th>LastName</th>
+                         <th>Gender</th>
+                         <th>Address</th>
+                    </tr>
+                    <tr ng-repeat="e in Emp | filter:searchEmp">
+                         <td>{{e.FirstName}}</td>
+                         <td>{{e.LastName}}</td>
+                         <td>{{e.Gender}}</td>
+                         <td>{{e.Address}}</td>
+                    </tr>
+               </table>
+          </div>
+  </body>
+
+<script>
+var myApp = angular.module("myModule", []);
+var myController = function ($scope)
+     {
+          var Employee = [
+          {
+               FirstName: "Joe", LastName: "Parihar",Gender: "Boy",Address: "Pune",
+          },
+          {
+               FirstName: "Shiva",LastName: "Parihar",Gender: "Boy",Address: "Pune",
+          },
+          {
+               FirstName: "Mili",LastName: "Zen",Gender: "Female",Address: "US",
+          },
+          {
+               FirstName: "Divya",LastName: "Singh",Gender: "Female",Address: "Nagpur",
+          },
+          {
+               FirstName: "Digvijay",LastName: "Chauhan",Gender: "Boy",Address: "Pune",
+          }];
+     $scope.Emp = Employee;
+     };
+myApp.controller("myCont", myController);
+</script>
+
+</html>

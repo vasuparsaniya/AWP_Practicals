@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        h1 {
+            color: rgb(49, 100, 100);
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(249, 212, 0);
+        }
+
+        .nav1 {
+            float: left;
+        }
+
+        li:hover {
+            background-color: rgb(157, 156, 87);
+        }
+
+        .hnav {
+            display: inline-block;
+            color: rgb(0, 0, 0);
+            padding: 12px 12px;
+            text-decoration: none;
+        }
+
+        .vnav {
+            display: block;
+            color: rgb(0, 0, 0);
+            padding: 12px 12px;
+            text-decoration: none;
+        }
+
+        .nav2 {
+            display: none;
+        }
+
+        .nav1:hover .nav2 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Horizontal Menu(200210116006)</h1>
+        <ul>
+            <li class="nav1"><a href="#" class="hnav">Home</a></li>
+            <li class="nav1"><a href="#" class="hnav">About</a></li>
+            <li class="nav1"><a href="#" class="hnav">Contact</a></li>
+            <li class="nav1"><a href="#" class="hnav">Login</a></li>
+        </ul>
+    </div>
+    <br>
+    <div>
+        <h1>Vertical Menu(200210116006)</h1>
+        <ul>
+            <li><a href="#" class="vnav">Home</a></li>
+            <li><a href="#" class="vnav">About</a></li>
+            <li><a href="#" class="vnav">Contact</a></li>
+            <li><a href="#" class="vnav">Login</a></li>
+        </ul>
+    </div>
+
+    <!-- <div>
+        <h1>Horizontal and Vertical Menu</h1>
+        <ul>
+            <li class="nav1"><a href="#" class="hnav">Home</a>
+                <ul>
+                    <li class="nav2"><a href="#" class="vnav">Home</a></li>
+                    <li class="nav2"><a href="#" class="vnav">About</a></li>
+                    <li class="nav2"><a href="#" class="vnav">Contact</a></li>
+                    <li class="nav2"><a href="#" class="vnav">Login</a></li>
+                </ul>
+            </li>
+            <li class="nav1"><a href="#" class="hnav">About</a></li>
+            <li class="nav1"><a href="#" class="hnav">Contact</a></li>
+            <li class="nav1"><a href="#" class="hnav">Login</a></li>
+        </ul>
+    </div> -->
+</body>
+
+</html>

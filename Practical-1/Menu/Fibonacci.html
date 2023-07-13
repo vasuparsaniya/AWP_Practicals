@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function fibo() {
+            var n1=0, n2=1, nextnum, i;
+            var N = document.getElementById('num').value;
+            for(i=0; i<N; i++) {
+                document.getElementById('result').innerHTML += (" "+n1); //for loop overwrite innerHTML in each iteration so we use +=
+                nextnum=n1+n2;
+                n1=n2;
+                n2=nextnum;
+             }
+        }
+    </script>
+    <h1>Fibonacci Series(200210116006)</h1>
+    <label for="num">Enter Term:</label>
+    <input type="number" id="num">
+    <input type="button" value="Submit" onclick="fibo()">
+    <br><br>
+    <p>Fibonacci Series:<span id="result"></span></p>
+</body>
+</html>
